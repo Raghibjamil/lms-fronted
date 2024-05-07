@@ -1,6 +1,7 @@
 
-import { Routes } from 'react-router-dom';
+import { Routes ,Route} from 'react-router-dom';
 import Footer from './Components/Footer';
+import HomePage from "./Pages/HomePage";
 
 function App() {
 
@@ -8,17 +9,10 @@ function App() {
   return (
     <>
     
-   <h1 className='text-2xl text-red-900 underline'>At this situation our footer Components is ready.....
-    </h1> 
-  
+    <Routes>
+        <Route path="/" element={<HomePage />} ></Route>
 
-   {/** <Footer/> */}
-    {/* 
-      <Routes>
-        <Route path="/" element={<Home />} ></Route>
-      </Routes> 
-    */}
-
+      </Routes>
     </>
   )
 }
