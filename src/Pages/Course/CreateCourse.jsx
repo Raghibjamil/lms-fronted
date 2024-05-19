@@ -77,7 +77,9 @@ function CreateCourse() {
                 >
                     
                     <Link className="absolute top-8 text-2xl link text-accent cursor-pointer">
-                        <AiOutlineArrowLeft />
+                        <AiOutlineArrowLeft onClick={()=>{
+                            navigate(-1);
+                        }}/>
                     </Link>
 
                     <h1 className="text-center text-2xl font-bold">
