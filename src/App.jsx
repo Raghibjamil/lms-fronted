@@ -15,6 +15,8 @@ import RequireAuth from './Components/Auth/RequireAuth';
 import Profile from './Pages/User/Profile';
 import EditProfile from './Pages/User/EditProfile';
 import ChangePassword from './Pages/User/ChangePassword';
+import CheckoutSuccess from './Pages/Payment/CheckoutSuccess';
+import Checkout from './Pages/Payment/Checkout';
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
           <Route path='/user/profile' element={<Profile />} />
           <Route path='/user/editprofile' element={<EditProfile />} />
           <Route path='/user/changepassword' element={<ChangePassword />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/checkout/success' element={<CheckoutSuccess />} />
 
 
         </Route>

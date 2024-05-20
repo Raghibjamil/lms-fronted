@@ -86,9 +86,11 @@ const razorpaySlice = createSlice({
             state.key = action?.payload?.key;
         })
         .addCase(purchaseCourseBundle.fulfilled, (state, action) => {
+            console.log(action);
             state.subscription_id = action?.payload?.subscription_id;
         })
         .addCase(verifyUserPayment.fulfilled, (state, action) => {
+            console.log(action);
             toast.success(action?.payload?.message);
             state.isPaymentVerified = action?.payload?.success;
         })
