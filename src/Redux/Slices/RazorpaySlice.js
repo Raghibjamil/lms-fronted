@@ -25,6 +25,7 @@ export const getRazorPayId = createAsyncThunk("/razorpay/getId", async () => {
 export const purchaseCourseBundle = createAsyncThunk("/purchaseCourse", async () => {
     try {
         const response = await axiosInstance.post("/payments/subscribe");
+        console.log(response)
         return response.data;
     } catch(error) {
         toast.error(error?.response?.data?.message);
@@ -68,7 +69,7 @@ export const cancelCourseBundle = createAsyncThunk("/payments/cancel", async () 
             success: (data) => {
                 return data?.data?.message
             },
-            error: "Failed to ubsubscrive"
+            error: "Failed to ubsubscribe"
         })
         return (await response).data;
     } catch(error) {
@@ -86,7 +87,6 @@ const razorpaySlice = createSlice({
             state.key = action?.payload?.key;
         })
         .addCase(purchaseCourseBundle.fulfilled, (state, action) => {
-            console.log(action);
             state.subscription_id = action?.payload?.subscription_id;
         })
         .addCase(verifyUserPayment.fulfilled, (state, action) => {
@@ -95,6 +95,7 @@ const razorpaySlice = createSlice({
             state.isPaymentVerified = action?.payload?.success;
         })
         .addCase(verifyUserPayment.rejected, (state, action) => {
+            console.log(action);
             toast.success(action?.payload?.message);
             state.isPaymentVerified = action?.payload?.success;
         })

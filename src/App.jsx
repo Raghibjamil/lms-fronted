@@ -17,6 +17,7 @@ import EditProfile from './Pages/User/EditProfile';
 import ChangePassword from './Pages/User/ChangePassword';
 import CheckoutSuccess from './Pages/Payment/CheckoutSuccess';
 import Checkout from './Pages/Payment/Checkout';
+import CheckoutFailure from './Pages/Payment/CheckoutFailure';
 
 function App() {
 
@@ -47,7 +48,7 @@ function App() {
           <Route path='/user/changepassword' element={<ChangePassword />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/checkout/success' element={<CheckoutSuccess />} />
-
+          <Route path='/checkout/fail' element={<CheckoutFailure />} />
 
         </Route>
 
