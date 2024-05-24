@@ -17,6 +17,8 @@ function CourseList() {
     useEffect(() => {
         loadCourses();
     }, []);
+    
+
 
     return (
         <HomeLayout>

@@ -18,6 +18,7 @@ import ChangePassword from './Pages/User/ChangePassword';
 import CheckoutSuccess from './Pages/Payment/CheckoutSuccess';
 import Checkout from './Pages/Payment/Checkout';
 import CheckoutFailure from './Pages/Payment/CheckoutFailure';
+import Displaylectures from './Pages/Dashboard/Displaylectures';
 
 function App() {
 
@@ -49,6 +50,8 @@ function App() {
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/checkout/success' element={<CheckoutSuccess />} />
           <Route path='/checkout/fail' element={<CheckoutFailure />} />
+          <Route path='/course/displaylectures' element={<Displaylectures />}/>
+
 
         </Route>
 
