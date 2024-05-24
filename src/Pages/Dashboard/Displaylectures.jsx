@@ -53,8 +53,10 @@ function Displaylectures() {
                     Course Name: {state?.title}
                 </div>
 
-                {lectures && lectures.length > 0 && <div className="flex justify-center gap-10 w-full">
-                    {/* left section for playing videos and displaying course details to admin */}
+
+                {(lectures && lectures.length > 0 ) ?  
+                    (<div className="flex justify-center gap-10 w-full">                
+                        {/* left section for playing videos and displaying course details to admin */}
                    <div className="space-y-5 w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black]">
                         <video 
                             src={lectures && lectures[currentVideo]?.lecture?.secure_url}
@@ -109,15 +111,22 @@ function Displaylectures() {
                                         {role === "ADMIN" && (
                                             <button onClick={() => onLectureDelete(state?._id, lecture?._id)} className="btn btn-accent px-2 py-1 rounded-md font-semibold text-sm border-2">
                                                  Delete lecture
-                                            </button>
+                                                 </button>
                                         )}
                                     </li>
                                 )
                             })    
                         }
                    </ul>
-                </div>}
+                </div>) : (
+                    role === "ADMIN" && (
+                        <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="btn btn-primary px-2 py-1 rounded-md font-semibold text-sm">
+                            Add new lecture
+                        </button>
+                    )
+                )}
             </div>
+
         </HomeLayout>
     );
 }
