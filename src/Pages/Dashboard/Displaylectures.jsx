@@ -28,13 +28,23 @@ function Displaylectures() {
     
    
  
+    // useEffect(() => {
+    //     console.log(state);
+    //     if(!state) navigate("/courses");
+    //     dispatch(getCourseLectures(state._id));
+
+
+    // }, []);
+
+    
     useEffect(() => {
         console.log(state);
-        if(!state) navigate("/courses");
-        dispatch(getCourseLectures(state._id));
-
-
-    }, []);
+        if (!state) {
+            navigate("/courses");
+        } else {
+            dispatch(getCourseLectures(state._id));
+        }
+    }, [state, navigate, dispatch]);
 
     return (
         <HomeLayout>
