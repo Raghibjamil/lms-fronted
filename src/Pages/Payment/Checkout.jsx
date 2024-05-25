@@ -83,7 +83,7 @@ function Checkout() {
                         </p>
 
                         <p className="flex items-center justify-center gap-1 text-2xl font-bold text-yellow-500">
-                            <BiRupee /><span>499</span> only
+                            <BiRupee /><span>1</span> only
                         </p>
                         <div className="text-gray-200">
                             <p>100% refund on cancellation</p>

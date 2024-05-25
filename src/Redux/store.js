@@ -4,6 +4,7 @@ import authSliceReducer from './Slices/AuthSlice';
 import courseSliceReducer from './Slices/CourseSlice';
 import razorpaySliceReducer from './Slices/RazorpaySlice';
 import lectureSliceReducer from './Slices/LectureSlice';
+import statSliceReducer from './Slices/StatSlice';
 
 
 const store = configureStore({
@@ -11,7 +12,8 @@ const store = configureStore({
         auth: authSliceReducer,
         course: courseSliceReducer,
         razorpay: razorpaySliceReducer,
-        lecture: lectureSliceReducer
+        lecture: lectureSliceReducer,
+        stat: statSliceReducer
 
     },
     devTools: true
