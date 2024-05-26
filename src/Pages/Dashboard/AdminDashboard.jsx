@@ -155,7 +155,6 @@ function AdminDashboard() {
                                     <th>Course Category</th>
                                     <th>Instructor</th>
                                     <th>Total Lectures</th>
-                                    <th>Description</th>
                                     <th>Actions</th>
 
                                 </tr>
@@ -177,15 +176,7 @@ function AdminDashboard() {
                                             <td>
                                                 {course?.numberOfLectures}
                                             </td>
-                                            <td className="max-w-28 overflow-hidden text-ellipsis whitespace-nowrap">
-                                                <textarea
-                                                    value={course?.description}
-                                                    readOnly
-                                                    className="w-80 h-auto bg-transparent resize-none"
-                                                >
-
-                                                </textarea>
-                                            </td>
+                                          
                                             <td className="flex items-center gap-4">
                                                 <button
                                                     className="bg-green-500 hover:bg-green-600 transition-all ease-in-out duration-300 text-xl py-2 px-4 rounded-md font-bold"
