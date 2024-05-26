@@ -11,8 +11,8 @@ const store = configureStore({
     reducer: {
         auth: authSliceReducer,
         course: courseSliceReducer,
-        razorpay: razorpaySliceReducer,
         lecture: lectureSliceReducer,
+        razorpay: razorpaySliceReducer,
         stat: statSliceReducer
 
     },
