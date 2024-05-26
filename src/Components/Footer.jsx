@@ -1,4 +1,4 @@
-import { BsFacebook, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsInstagram, BsLinkedin, BsTwitter } from 'react-icons/bs';
 function Footer() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -10,18 +10,16 @@ function Footer() {
                     Copyright {year} | All rights reserved
                 </section>
                 <section className='flex items-center justify-center gap-5 text-2xl text-white'>
-                    <a className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
-                        <BsFacebook />
+                    <a  href='https://github.com/Raghibjamil' target="_blank" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
+                        <BsGithub />
                     </a>
-                    <a className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
+                    <a  href='https://www.instagram.com/raghibj11' target="_blank" className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
                         <BsInstagram />
                     </a>
-                    <a className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
+                    <a href='https://www.linkedin.com/in/raghib-jamil-46a73326a/' target='_blank'  className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
                         <BsLinkedin />
                     </a>
-                    <a className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
-                        <BsTwitter />
-                    </a>
+                    
                 </section>
             </footer>
         </>
