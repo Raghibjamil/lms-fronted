@@ -1,22 +1,42 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import HomeLayout from "../../Layouts/HomeLayout";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { getAllCourses } from "../../Redux/Slices/CourseSlice";
 
 function CourseDescription() {
 
+ 
     const { state } = useLocation();
+
+    
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    // console.log(state);
 
     const { role, data } = useSelector((state) => state.auth);
 
 
+
+    
+    
+   
+
+ 
+
+  
+
+
+
+
     return (
         <HomeLayout>
-            <div className="min-h-[90vh] pt-12 px-20 flex flex-col items-center justify-center text-white">
-                <div className="grid grid-cols-2 gap-10 py-10 relative">
-                    <div className="space-y-5">
+            <div className="min-h-[90vh] pt-12 px-20 flex flex-col items-center justify-center text-white ">
+                <div className="grid grid-cols-2 gap-10 py-10 relative ">
+                    <div className="space-y-5 ">
+                       
                         <img 
                             className="w-full h-64"
                             alt="thumbnail"
@@ -31,6 +51,10 @@ function CourseDescription() {
                                         Total lectures : {" "}
                                     </span>
                                     {state?.numberOfLectures}
+                                  
+                                    {/* {console.log(`number of lectures:-${state?.numberOfLectures}`)} */}
+
+                                    
                                 </p>
 
                                 <p className="font-semibold">
@@ -58,14 +82,20 @@ function CourseDescription() {
 
                     </div>
 
-                    <div className="space-y-2 text-xl">
-                        <h1 className="text-3xl font-bold text-yellow-500 mb-5 text-center">
+                    <div className="space-y-2 text-xl  relative">
+                    <button 
+                            className="md:absolute md:left-0 md:top-0   md:text-xl md:text-green-500 hidden md:block"
+                            onClick={() => navigate(-1)}
+                        >
+                            <AiOutlineArrowLeft />
+                        </button>
+                        <h1 className="text-3xl font-bold text-yellow-500 mb-5 text-center ">
                             {state?.title}
                         </h1>
 
-                        <p className="text-yellow-500">Course description: </p>
+                        <p className="text-yellow-500">Course description:- </p>
                         <p>{state?.description}</p>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </HomeLayout>

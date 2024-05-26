@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import HomeLayout from "../../Layouts/HomeLayout";
 import { deleteCourseLecture, getCourseLectures } from "../../Redux/Slices/LectureSlice";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 function Displaylectures() {
 
@@ -48,14 +49,14 @@ function Displaylectures() {
 
     return (
         <HomeLayout>
-            <div className="flex flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-wihte mx-[5%]">
+            <div className="flex flex-col gap-10 items-center justify-center min-h-[90vh] py-10 text-wihte mx-[5%] ">
                 <div className="text-center text-2xl font-semibold text-yellow-500">
                     Course Name: {state?.title}
                 </div>
 
 
                 {(lectures && lectures.length > 0 ) ?  
-                    (<div className="flex justify-center gap-10 w-full">                
+                    (<div className="flex justify-center gap-10 w-full ">                
                         {/* left section for playing videos and displaying course details to admin */}
                    <div className="space-y-5 w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black]">
                         <video 
@@ -68,7 +69,7 @@ function Displaylectures() {
 
                         >
                         </video>    
-                        <div>
+                        <div >
                             <h1 className="text-xl">
                                 <span className="text-yellow-500"> Title:- {" "}
                                 </span>
@@ -90,6 +91,12 @@ function Displaylectures() {
                    {/* right section for displaying list of lectres */}
                    <ul className="w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black] space-y-4">
                         <li className="font-semibold text-xl text-yellow-500 flex items-center justify-between">
+                        <button 
+                            className="    md:text-xl md:text-green-500 hidden md:block"
+                            onClick={() => navigate(-1)}
+                        >
+                            <AiOutlineArrowLeft />
+                        </button>
                             <p>Lectures list</p>
                             {role === "ADMIN" && (
                                 <button onClick={() => navigate("/course/addlecture", {state: {...state}})} className="btn btn-primary px-2 py-1 rounded-md font-semibold text-sm">
