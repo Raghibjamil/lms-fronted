@@ -41,6 +41,41 @@ export const login = createAsyncThunk("/auth/login", async (data) => {
     }
 });
 
+
+export const reset = createAsyncThunk("/auth/reset", async (data) => {
+    try {
+        console.log(data);
+        const res = axiosInstance.post("user/reset", data);
+        toast.promise(res, {
+            loading: "Wait! Reset email in progress...",
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: "Failed to Send email for reset"
+        });
+        return (await res).data;
+    } catch(error) {
+        toast.error(error?.response?.data?.message);
+    }
+});
+
+export const Reset_Password = createAsyncThunk("/auth/ResetPassword", async (data) => {
+    try {
+       // console.log(data);
+        const res = axiosInstance.post(`/user/reset/${data[0]}`, data[1]);
+        toast.promise(res, {
+            loading: "Wait! Password is Reseting ....",
+            success: (data) => {
+                return data?.data?.message;
+            },
+            error: "Failed to Reset Password"
+        });
+        return (await res).data;
+    } catch(error) {
+        toast.error(error?.response?.data?.message);
+    }
+})
+
 export const logout = createAsyncThunk("/auth/logout", async () => {
     try {
         const res = axiosInstance.get("user/logout");

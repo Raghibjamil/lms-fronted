@@ -37,7 +37,7 @@ function Profile() {
                         <p>Email: </p><p>{userData?.email}</p>
                         <p>Role: </p><p>{userData?.role}</p>
                         <p>Subscription: </p>
-                        <p>{userData?.subscription?.status === "active" ? "Action" : "Inactive"}</p>
+                        <p>{userData?.subscription?.status === "active" || userData?.role==="ADMIN" ? "Active" : "Inactive"}</p>
                     </div>
                     <div className="flex items-center justify-between gap-2">
                         <Link 

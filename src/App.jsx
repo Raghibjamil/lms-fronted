@@ -22,6 +22,9 @@ import Displaylectures from './Pages/Dashboard/Displaylectures';
 import AddLecture from './Pages/Dashboard/Addlecture';
 import AdminDashboard from './Pages/Dashboard/AdminDashboard';
 
+import ResetPassword from './Pages/ResetPassword';
+import ForgetPassword from './Pages/ForgetPassword';
+
 function App() {
 
 
@@ -40,6 +43,10 @@ function App() {
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/ForgetPassword" element={<ForgetPassword />} />
+        <Route path="/reset-password/:resetToken" element={<ResetPassword />} />
+
+
 
         <Route element={<RequireAuth allowedRoles={["ADMIN"]} />}>
           <Route path="/course/create" element={<CreateCourse />} />
