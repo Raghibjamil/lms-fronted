@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import axiosInstance from "../Helpers/axiosInstance";
 import { isEmail } from "../Helpers/regexMatcher";
 import HomeLayout from "../Layouts/HomeLayout";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 function Contact() {
 
@@ -14,21 +15,21 @@ function Contact() {
     });
 
     function handleInputChange(e) {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         setUserInput({
             ...userInput,
             [name]: value
         })
-    } 
+    }
 
     async function onFormSubmit(e) {
         e.preventDefault();
-        if(!userInput.email || !userInput.name || !userInput.message) {
+        if (!userInput.email || !userInput.name || !userInput.message) {
             toast.error("All fields are mandatory");
             return;
         }
 
-        if(!isEmail(userInput.email)) {
+        if (!isEmail(userInput.email)) {
             toast.error("Invalid email");
             return;
         }
@@ -42,7 +43,7 @@ function Contact() {
             });
             const contactResponse = await response;
             console.log(contactResponse)
-            if(contactResponse?.data?.success) {
+            if (contactResponse?.data?.success) {
                 setUserInput({
                     name: "",
                     email: "",
@@ -57,11 +58,13 @@ function Contact() {
 
     return (
         <HomeLayout>
-            <div className="flex items-center justify-center h-[100vh]">
-                <form 
+            <div className="flex items-center justify-center h-[100vh] ">
+                <form
                     noValidate
                     onSubmit={onFormSubmit}
-                    className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white shadow-[0_0_10px_black] w-[22rem]">
+                    className="flex flex-col items-center justify-center gap-2 p-5 rounded-md text-white shadow-[0_0_10px_black] w-[22rem] ">
+
+                    
 
                     <h1 className="text-3xl font-semibold">
                         Contact Form
@@ -71,7 +74,7 @@ function Contact() {
                         <label htmlFor="name" className="text-xl font-semibold">
                             Name
                         </label>
-                        <input 
+                        <input
                             className="bg-transparent border px-2 py-1 rounded-sm"
                             id="name"
                             type="text"
@@ -87,7 +90,7 @@ function Contact() {
                         <label htmlFor="email" className="text-xl font-semibold">
                             Email
                         </label>
-                        <input 
+                        <input
                             className="bg-transparent border px-2 py-1 rounded-sm"
                             id="email"
                             type="email"
@@ -103,7 +106,7 @@ function Contact() {
                         <label htmlFor="message" className="text-xl font-semibold">
                             Message
                         </label>
-                        <textarea 
+                        <textarea
                             className="bg-transparent border px-2 py-1 rounded-sm resize-none h-40"
                             id="message"
                             name="message"
@@ -121,7 +124,7 @@ function Contact() {
 
                 </form>
             </div>
-            
+
         </HomeLayout>
     );
 }
