@@ -24,7 +24,7 @@ function CourseList() {
                     <span className="text-white">Explore the courses made by </span>
                     <span className="font-bold text-yellow-500">Industry experts</span>
                 </h1>
-                <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex flex-wrap justify-center  gap-6">
                     {courseData?.map((element) => (
                         <CourseCard key={element._id} data={element} />
                     ))}

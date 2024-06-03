@@ -42,7 +42,7 @@ function ResetPassword() {
         // In this context, createAccount(formData) is an action creator function that returns an action object. The dispatch function is used to send this action to the Redux store, triggering a state change.
         const response =  await dispatch(Reset_Password([resetToken, passwordData]));
 
-        console.log(response);
+        // console.log(response);
 
         if(response?.payload?.success)
             navigate("/login");

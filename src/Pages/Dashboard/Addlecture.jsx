@@ -34,7 +34,7 @@ function AddLecture() {
     function handleVideo(e) {
         const video = e.target.files[0];
         const source = window.URL.createObjectURL(video);
-        console.log(source);
+        // console.log(source);
         setUserInput({
             ...userInput,
             lecture: video,
@@ -77,50 +77,47 @@ function AddLecture() {
 
     return (
         <HomeLayout>
-            <div className="min-h-[90vh] text-white flex flex-col items-center justify-center gap-10 mx-16">
-                <div className="flex flex-col gap-5 p-2 shadow-[0_0_10px_black] w-96 rounded-lg">
+            <div className="min-h-[90vh] text-white flex flex-col items-center justify-center gap-10 px-4 md:px-16">
+                <div className="flex flex-col gap-5 p-4 shadow-[0_0_10px_black] w-full md:w-96 rounded-lg mt-24">
                     <header className="flex items-center justify-center relative">
-                        <button 
+                        <button
                             className="absolute left-2 text-xl text-green-500"
                             onClick={() => navigate(-1)}
                         >
                             <AiOutlineArrowLeft />
                         </button>
-                        <h1 className="text-xl text-yellow-500 font-semibold">
+                        <h1 className="text-xl text-yellow-500 font-semibold mt-4">
                             Add new lecture
                         </h1>
                     </header>
-                    <form 
+                    <form
                         onSubmit={onFormSubmit} className="flex flex-col gap-3"
                     >
-
-                        <input 
+                        <input
                             type="text"
                             name="title"
-                            placeholder="enter the title of the lecture"
+                            placeholder="Enter the title of the lecture"
                             onChange={handleInputChange}
                             className="bg-transparent px-3 py-1 border"
                             value={userInput.title}
                         />
-                        <textarea 
+                        <textarea
                             type="text"
                             name="description"
-                            placeholder="enter the description of the lecture"
+                            placeholder="Enter the description of the lecture"
                             onChange={handleInputChange}
                             className="bg-transparent px-3 py-1 border resize-none overflow-y-scroll h-36"
                             value={userInput.description}
                         />
                         {userInput.videoSrc ? (
-                            <video 
+                            <video
                                 muted
                                 src={userInput.videoSrc}
-                                controls 
+                                controls
                                 controlsList="nodownload nofullscreen"
                                 disablePictureInPicture
                                 className="object-fill rounded-tl-lg rounded-tr-lg w-full"
-                            >
-
-                            </video>
+                            />
                         ) : (
                             <div className="h-48 border flex items-center justify-center cursor-pointer">
                                 <label className="font-semibold text-cl cursor-pointer" htmlFor="lecture">Choose your video</label>
@@ -132,7 +129,7 @@ function AddLecture() {
                         </button>
                     </form>
                 </div>
-            </div>  
+            </div>
         </HomeLayout>
     )
 }

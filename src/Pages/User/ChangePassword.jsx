@@ -19,7 +19,7 @@ function ChangePassword(){
         newPassword: "",  
           });
 
-  console.log(data);
+//   console.log(data);
 
     function handleInputChange(e) {
         const {name, value} = e.target;
@@ -32,7 +32,7 @@ function ChangePassword(){
     async function onFormSubmit(e) {
         e.preventDefault();
        // console.log(data.oldPassword);
-       console.log(data);
+    //    console.log(data);
         if(!data.oldPassword|| !data.newPassword) {
             toast.error("All fields are mandatory");
             return;
@@ -52,7 +52,7 @@ function ChangePassword(){
             oldPassword: "",
             newPassword: "",
         })
-        console.log(data);
+        // console.log(data);
     }
 
     return (

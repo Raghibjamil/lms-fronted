@@ -70,9 +70,17 @@ function CreateCourse() {
         <HomeLayout>
             <div className="flex flex-col items-center justify-center ">
                 <form onSubmit={onFormSubmit} className="w-full max-w-lg  text-white rounded-lg p-8 shadow-[0_0_10px_black] relative  my-20">
-                    <Link to="/courses" className="absolute top-4 left-4 text-2xl text-accent cursor-pointer">
+                    {/* <Link to="/courses" className="absolute top-4 left-4 text-2xl text-accent cursor-pointer">
                         <AiOutlineArrowLeft />
-                    </Link>
+                    </Link> */}
+                    <button onClick={()=>{
+                        navigate(-1);
+                    }}
+                          className="absolute top-4 left-4 text-2xl text-accent cursor-pointer"
+                    >
+                         <AiOutlineArrowLeft />
+
+                    </button>
                     <h1 className="text-3xl font-bold text-center mb-8">Create New Course</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>

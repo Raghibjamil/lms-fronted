@@ -1,6 +1,5 @@
 import aboutMainImage from "../assets/Images/aboutMainImage.png";
-import CarouselSlide from "../Components/CarouselSlide";
-import { celebrities } from "../Constants/CelebrityData";
+
 import HomeLayout from "../Layouts/HomeLayout";
 
 function AboutUs() {

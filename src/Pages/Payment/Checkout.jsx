@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 import HomeLayout from '../../Layouts/HomeLayout';
 import { getRazorPayId, purchaseCourseBundle, verifyUserPayment } from "../../Redux/Slices/RazorpaySlice";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 function Checkout() {
 
@@ -37,7 +38,7 @@ function Checkout() {
             },
             
             handler: async function (response) {
-                console.log(` res:- ${response.razorpay_signature}`);
+                // console.log(` res:- ${response.razorpay_signature}`);
                 paymentDetails.razorpay_payment_id = response.razorpay_payment_id;
                 paymentDetails.razorpay_signature = response.razorpay_signature;
                 paymentDetails.razorpay_subscription_id = response.razorpay_subscription_id;
@@ -46,7 +47,7 @@ function Checkout() {
                
                 const res = await dispatch(verifyUserPayment(paymentDetails));
 
-                console.log(res);
+                // console.log(res);
                 res?.payload?.success ? navigate("/checkout/success") : navigate("/checkout/fail");
             }
         }
@@ -63,14 +64,30 @@ function Checkout() {
         load();
     }, []);
 
+
+
     return (
         <HomeLayout>
             <form
                 onSubmit={handleSubscription}
-                className="min-h-[90vh] flex items-center justify-center text-white"
+                className="min-h-[90vh] flex items-center justify-center text-white "
             >
-                <div className="w-80 h-[26rem] flex flex-col justify-center shadow-[0_0_10px_black] rounded-lg relative">
-                    <h1 className="bg-yellow-500 absolute top-0 w-full text-center py-4 text-2xl font-bold rounded-tl0lg rounded-tr-lg">Subscription Bundle</h1>
+                  
+                <div className="w-80 h-[26rem] flex flex-col justify-center shadow-[0_0_10px_black] rounded-lg relative ">
+                
+                
+                    <h1 className="bg-yellow-500  top-0 w-full text-center py-4 text-2xl font-bold rounded-tl0lg rounded-tr-lg ">
+                    <span  onClick={()=>{
+                        navigate(-1);
+                    }}
+                          className="absolute top-4 left-4 text-2xl text-accent cursor-pointer   "
+                    >
+                         <AiOutlineArrowLeft />
+
+                    </span>
+                        
+                        
+                        Subscription Bundle</h1>
                     <div className="px-4 space-y-5 text-center">
                         <p className="text-[17px]">
                             This purchase will allow you to access all available course
